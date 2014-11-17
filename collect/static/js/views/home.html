@@ -1,5 +1,52 @@
-<h1>HOME PAGE</h1>
-<p>My favorites places</p>
+<h2>Welcome on Wibee</h2>
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<h3>My favorites places</h3>
+</div>
+<div class="col-sm-9"><input ng-model="searchText" />
+<div ng-repeat="place in places | filter: searchText ">
+        <div class="my-places">
+        <a href="#/places/{{ place.id }}">{{ place.name }}</a><br>
+        <flip flip-toggle horizontal>
+        <flip-front><img class="displayed" src="static/media/{{ place.image }}" height="100px" width="100px"></flip-front>
+        <flip-back>{{ place.name }}, {{ place.city }}, {{ place.country }} {{ place.latitude }}, {{ place.longitude }}</flip-back></flip>
+        </div>
+
+</div>
+
+</div><div class="col-sm-3">
+    <button type="submit" class="btn btn-primary btn-large" data-ng-click="createPlace();" ng-hide="newPlace">Add a place</button><br><br>
+    <button type="submit" class="btn btn-primary btn-large" data-ng-click="seeMap();" ng-hide="newPlace">See map</button><br><br>
+    <div ng-show="newPlace">
+        <h2>New place</h2><span>Name:</span><input ng-model="name" type="text" placeholder="name"><br>
+        <span>Description:</span><textarea ng-model="description" placeholder="description"></textarea><br>
+        <span>Category:</span>
+        <select ng-model="category" type="text" placeholder="category"><br>
+            <option value=1>Eat</option>
+            <option value="2">See</option>
+            <option value="3">Stay</option>
+            <option value="4">Shop</option>
+        </select><br>
+        <span>City:</span><input ng-model="city" placeholder="city"></input><br>
+        <span>Country:</span><input ng-model="country" placeholder="country"></input><br>
+<datalist id="categories">
+</datalist>
+        <button type="submit" class="btn btn-primary btn-small" ng-click="savePlace();">Save Place</button>
+
+    </div>
+
+</div>
+
+<h3>Categories</h3>
+<div ng-repeat="category in categories">
+        <div>{{ category.name }}<img src="static/media/{{ category.image }}"></div>
+</div>
+
+
+
+
+
 
 
 

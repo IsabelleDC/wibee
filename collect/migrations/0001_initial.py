@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Person',
+            name='User',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('password', models.CharField(max_length=128, verbose_name='password')),
@@ -43,8 +43,7 @@ class Migration(migrations.Migration):
             name='Category',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=50, null=True, blank=True)),
-                ('user', models.ForeignKey(related_name='categories', to=settings.AUTH_USER_MODEL)),
+                ('name', models.CharField(max_length=7, choices=[(b'Eat', b'Eat'), (b'Stay', b'Stay'), (b'See', b'See'), (b'Shoping', b'Shoping'), (b'Other', b'Other')])),
             ],
             options={
             },
@@ -63,7 +62,10 @@ class Migration(migrations.Migration):
                 ('latitude', models.DecimalField(null=True, max_digits=18, decimal_places=10, blank=True)),
                 ('longitude', models.DecimalField(null=True, max_digits=18, decimal_places=10, blank=True)),
                 ('image', models.ImageField(null=True, upload_to=b'adress_image', blank=True)),
-                ('category', models.ManyToManyField(related_name='places', to='collect.Category')),
+                ('created_time', models.DateTimeField(auto_now_add=True)),
+                ('category', models.ForeignKey(related_name='places', to='collect.Category')),
+                ('creator', models.ForeignKey(related_name='place', to=settings.AUTH_USER_MODEL)),
+                ('follower', models.ManyToManyField(related_name='followed_project', null=True, to=settings.AUTH_USER_MODEL, blank=True)),
             ],
             options={
             },

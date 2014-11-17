@@ -10,27 +10,50 @@
     <!------- Angular ------->
     <script src="{% static "js/vendors/angular/angular.js" %}"></script>
     <script src="{% static "js/vendors/angular/angular-route.js" %}"></script>
-
-    <!------- Bootstrap ------->
-{#    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">#}
-
+    <script src="{% static "js/vendors/angular-ui/ui-bootstrap-tpls-0.11.2.min.js" %}"></script>
+    <script src="{% static "js/vendors/angular/angular-resource.js" %}"></script>
+        <!------- Bootstrap ------->
+<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
     <!-- JavaScript -->
     <script src="{% static "js/app.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css/flip.css" %}"/>
+<script src="{% static "js/angular-flip.js"%}"></script>
+    <!------- Mapbox ------->
 
     <!------- Resources ------->
     <script src="{% static "js/vendors/angular/angular-resource.js" %}"></script>
-    <!------- Controllers ------->
+    <!------- Directives ------->
+    <script src="{% static "js/directives/mapboxDirective.js" %}"></script><!------- Controllers ------->
     <script src="{% static "js/controllers/homeController.js" %}"></script>
+    <script src="{% static "js/controllers/placeController.js" %}"></script>
+    <script src="{% static "js/controllers/mapController.js" %}"></script>
 
- <!------- Factories ------->
+    <!------- Factories ------->
+    <script src="{% static "js/factory/categoryResource.js" %}"></script>
+    <script src="{% static "js/factory/placeResource.js" %}"></script>
+    <script src="{% static "js/factory/placeFactory.js" %}"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static "css/index.css" %}">
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="{% static "css/map.css" %}">
 
 </head>
+
 <body>
+<div>
+<a href="{% url 'login' %}">Login</a>
+<div>Sign up below</div>
+<form method="post" action=".">
+{%  csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" class="btn btn-md btn-info">
+</form>
+</div>
+
+
     <div ng-app="wibeeApp">
-        <p>WIBEE - Out of angular-app</p><hr>
+        <p>Out of angular-app</p><hr>
         <div ng-view></div>
         <hr><p>Out of angular-app</p>
     </div>

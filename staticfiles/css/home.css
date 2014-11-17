@@ -1,0 +1,13 @@
+.my-places {
+    height: 250px;
+    width: 200px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin : 5px;
+    float: left;
+    background-color:white;
+}
+
+body{
+    background-color:#F9D423;
+}
