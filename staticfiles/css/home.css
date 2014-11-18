@@ -6,8 +6,21 @@
     margin : 5px;
     float: left;
     background-color:white;
+    color:grey;
+    font-size:20px;
 }
 
 body{
     background-color:#F9D423;
+}
+
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:90%;
+}
+
+a {
+    cursor: pointer;
 }

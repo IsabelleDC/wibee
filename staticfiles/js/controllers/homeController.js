@@ -1,18 +1,13 @@
-function homeController($scope, $http, PlaceFactory, PlaceResource) {
-    console.log('homeController');
+function homeController($scope, $http, PlaceFactory) {
 
-    //Get projects
-    if (PlaceFactory.placeList.length > 0) {
-        $scope.places = PlaceFactory.placeList;
-        $scope.totalItems = $scope.places.length;
-    } else{
-        PlaceFactory.getPlaces(function(placeResponse) {
-            $scope.places = placeResponse;
-            console.log(placeResponse);
-            PlaceFactory.placeList = $scope.places;
-        });
 
-}
+    //Get places
+
+    PlaceFactory.getPlaces(function(response) {
+        $scope.places = response;
+        PlaceFactory.placeList = $scope.places;
+    });
+
 
     $http.get('/api/categories/')
         .success(function (data) {
@@ -57,6 +52,10 @@ function homeController($scope, $http, PlaceFactory, PlaceResource) {
             })
     };
 
+    $scope.setCategory = function (newCategory) {
+        console.log(newCategory);
+        $scope.currentCategory = newCategory;
+    };
 
 }
 

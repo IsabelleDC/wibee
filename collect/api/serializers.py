@@ -28,7 +28,7 @@ class UserSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'image')
 
 class PlaceSerializer(serializers.ModelSerializer):
     # owner = UserSerializer(read_only=True)

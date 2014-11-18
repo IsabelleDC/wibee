@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>WIBEE</title>
     <!-- Vendor Files -->
     <script src="{% static "js/vendors/jquery.js" %}"></script>
 
@@ -13,13 +13,16 @@
     <script src="{% static "js/vendors/angular-ui/ui-bootstrap-tpls-0.11.2.min.js" %}"></script>
     <script src="{% static "js/vendors/angular/angular-resource.js" %}"></script>
         <!------- Bootstrap ------->
-<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+
     <!-- JavaScript -->
     <script src="{% static "js/app.js" %}"></script>
     <link rel="stylesheet" href="{% static "css/flip.css" %}"/>
-<script src="{% static "js/angular-flip.js"%}"></script>
+    <script src="{% static "js/angular-flip.js"%}"></script>
     <!------- Mapbox ------->
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js'></script>
 
+    <script src="{% static "js/factory/placeFactory.js" %}"></script>
     <!------- Resources ------->
     <script src="{% static "js/vendors/angular/angular-resource.js" %}"></script>
     <!------- Directives ------->
@@ -27,31 +30,22 @@
     <script src="{% static "js/controllers/homeController.js" %}"></script>
     <script src="{% static "js/controllers/placeController.js" %}"></script>
     <script src="{% static "js/controllers/mapController.js" %}"></script>
+    <script src="{% static "js/filters/categoriesFilter.js" %}"></script>
 
-    <!------- Factories ------->
-    <script src="{% static "js/factory/categoryResource.js" %}"></script>
-    <script src="{% static "js/factory/placeResource.js" %}"></script>
-    <script src="{% static "js/factory/placeFactory.js" %}"></script>
+
+
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static "css/index.css" %}">
-    <link rel="stylesheet" href="{% static "css/home.css" %}">
     <link rel="stylesheet" href="{% static "css/map.css" %}">
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
+
+
 
 </head>
 
 <body>
-<div>
-<a href="{% url 'login' %}">Login</a>
-<div>Sign up below</div>
-<form method="post" action=".">
-{%  csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Submit" class="btn btn-md btn-info">
-</form>
-</div>
-
-
     <div ng-app="wibeeApp">
         <p>Out of angular-app</p><hr>
         <div ng-view></div>

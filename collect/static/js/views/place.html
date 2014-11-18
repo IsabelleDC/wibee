@@ -1,6 +1,10 @@
 <h2>{{ place.name }}</h2>
 <div>
-    <ul>
-        <li>Description: {{ place.description }}, {{ place.category.name }} {{ place.streetnum }}, {{ place.street }} {{ place.city }} {{ place.country }}</li>
-    </ul>
+
+    <label form="description">Description</label><input id="description" ng-model="place.description"/>
+    <label form="name">Street</label><input id="name" ng-model="place.name"/>
+    <label form="street">Street</label><input id="street" ng-model="place.street"/>
+
+    <button type="submit" class="btn btn-primary btn-small" ng-click="deletePlace();">Delete Place</button>
+    <button type="submit" class="btn btn-primary btn-small" ng-click="updatePlace();">Update Place</button>
 </div>

@@ -5,7 +5,7 @@ from collect.forms import EmailUserCreationForm
 
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'home.html')
 
 # def first(request):
 #     return render(request, 'first.html')

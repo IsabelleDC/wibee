@@ -1,4 +1,4 @@
-var wibeeApp = angular.module('wibeeApp', ['ngRoute', 'ngResource', 'ui.bootstrap']);
+var wibeeApp = angular.module('wibeeApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'angular-flip']);
 
 wibeeApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
