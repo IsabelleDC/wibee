@@ -6120,9 +6120,9 @@ button.close {
 .affix {
   position: fixed;
 }
-@-ms-viewport {
-  width: device-width;
-}
+/*@-ms-viewport {*/
+  /*width: device-width;*/
+/*}*/
 .visible-xs,
 .visible-sm,
 .visible-md,
@@ -6330,4 +6330,4 @@ button.close {
     display: none !important;
   }
 }
-# sourceMappingURL=bootstrap.css.map
+/*sourceMappingURL=bootstrap.css.map*/
