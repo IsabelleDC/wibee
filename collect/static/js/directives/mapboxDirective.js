@@ -1,11 +1,11 @@
 L.mapbox.accessToken = 'pk.eyJ1IjoiaXNhYmVsbGVyIiwiYSI6Ii1yLXFNTDgifQ.kwOSua7iDuXMTpPqXz1vUw';
-//L.mapbox.accessToken = MAPBOX_ACCESS_TOKEN;
 
 angular.module('wibeeApp').directive('featureLayer', function() {
   return {
     restrict: 'E',
     require: '^mapbox',
     link: function(scope, element, attrs, controller) {
+        console.log ('this is attrs ' + attrs);
       if(attrs.data) {
         controller.getMap().then(function(map) {
           var geojsonObject = scope.$eval(attrs.data);
@@ -23,6 +23,12 @@ angular.module('wibeeApp').directive('featureLayer', function() {
   };
 });
 
+//var map = L.mapbox.map('map');
+//
+//var stamenLayer = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
+//  attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+//}).addTo(map);
+
 
 angular.module('wibeeApp').directive('mapbox', function($compile, $q) {
   var _mapboxMap;
@@ -36,12 +42,11 @@ angular.module('wibeeApp').directive('mapbox', function($compile, $q) {
       scope.map = L.mapbox.map(element[0], attrs.mapId);
       _mapboxMap.resolve(scope.map);
 
-      var mapWidth = attrs.width || 700;
-      var mapHeight = attrs.height || 700;
+      var mapWidth = attrs.width || 900;
+      var mapHeight = attrs.height || 450;
       element.css('width', mapWidth + 'px');
       element.css('height', mapHeight + 'px');
-//      element.css('width', '100%');
-//      element.css('height', '100%');
+
 
       var zoom = attrs.zoom || 12;
       if(attrs.lat && attrs.lng) {

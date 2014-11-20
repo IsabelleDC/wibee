@@ -1,15 +1,14 @@
+{%  extends 'home.html' %}
+{% load staticfiles %}
 
-            <form method="post" action="." role="form" class="form-horizontal">
-                {% csrf_token %}
-                {% for field in form %}
-                     <div class="form-group">
-                         <div class="label-control">{{ field.label_tag }}</div>
-                         <div class="label-control"></div>
-                         {{ field }}
-                     </div>
-                {% endfor %}
-            <div class="row">
-                <div class="col-xs-4 col-xs-offset-4">
-                <input type="submit" value="Log in" class="btn btn-md btn-info"></div></div>
-            </form>
+{% block content %}
+    <form method="post" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" class="btn btn-default" value="Log in">
+    </form>
+
+    <p>Not member? <a href="{% url 'register' %}">Register!</a></p>
+{% endblock %}
 

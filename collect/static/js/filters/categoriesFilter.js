@@ -12,4 +12,14 @@ angular.module('wibeeApp')
            return place.category === category;
        });
    };
+})
+.filter('visited', function () {
+    return function (places, status) {
+        if (!status) {
+            return places;
+        }
+        return places.filter(function (place) {
+            return place.status;
+        });
+    };
 });

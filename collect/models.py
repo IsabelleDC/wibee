@@ -21,20 +21,18 @@ class User(AbstractUser):
 
 
 class Category(models.Model):
-    EAT = 'Eat'
-    STAY = 'Stay'
-    SEE = 'See'
-    SHOPING = 'Shoping'
-    OTHER ='Other'
+    RESTAURANT = 'Restaurant'
+    HOTEL = 'Hotel'
+    VIEW = 'View'
+    SHOP = 'Shop'
 
     CATEGORY_CHOICES = (
-        (EAT, 'Eat'),
-        (STAY, 'Stay'),
-        (SEE, 'See'),
-        (SHOPING, 'Shoping'),
-        (OTHER, 'Other'),
+        (RESTAURANT, 'Restaurant'),
+        (HOTEL, 'Hotel'),
+        (VIEW, 'View'),
+        (SHOP, 'Shop'),
     )
-    name = models.CharField(max_length=7, choices=CATEGORY_CHOICES)
+    name = models.CharField(max_length=15, choices=CATEGORY_CHOICES)
     image = models.ImageField(upload_to='categories', blank=True, null=True)
 
     def __unicode__(self):
@@ -54,9 +52,12 @@ class Place(models.Model):
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
     image = models.ImageField(upload_to='places', blank=True, null=True)
+    marker_symbol = models.CharField(max_length=20, blank=True, null=True)
+    marker_color = models.CharField(max_length=20, blank=True, null=True)
     owner = models.ForeignKey(User, related_name="place")
     created_time = models.DateTimeField(auto_now_add=True)
     follower = models.ManyToManyField(User, related_name="followed_project", null=True, blank=True)
+    status = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name

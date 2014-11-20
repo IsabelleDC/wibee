@@ -1,10 +1,22 @@
-<h2>{{ place.name }}</h2>
-<div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <div>
+                <div class="cardDetail">
+                    <div class ="cardFrontTitle">Name : {{ place.name }}</div>
+                    <p>Description : {{ place.description }}</p>
+                    <p>Address : {{ place.streetnum }}{{ place.street }}, {{ place.city }} - {{ place.country }}</p>
+                    <p>Created on: {{ place.created_time | date:'MM/dd/yyyy @ h:mm:ss a'}}</p>
+                    <img class="detailedPicture" src="static/media/{{ place.image }}" ><br>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary btn-small" ng-click="deletePlace();">Delete Place</button><br><br>
+            <button type="submit" class="btn btn-primary btn-small" ng-click="updatePlace();">Update Place</button><br><br>
+            <button type="submit" class="btn btn-primary btn-small">Share with friends</button>
 
-    <label form="description">Description</label><input id="description" ng-model="place.description"/>
-    <label form="name">Street</label><input id="name" ng-model="place.name"/>
-    <label form="street">Street</label><input id="street" ng-model="place.street"/>
-
-    <button type="submit" class="btn btn-primary btn-small" ng-click="deletePlace();">Delete Place</button>
-    <button type="submit" class="btn btn-primary btn-small" ng-click="updatePlace();">Update Place</button>
+        </div>
+    </div>
+</div>
 </div>

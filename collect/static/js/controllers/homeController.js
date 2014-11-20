@@ -26,19 +26,22 @@ function homeController($scope, $http, PlaceFactory) {
         $scope.newPlace = true;
     };
 
-    console.log($scope.image);
+    console.log()
 
     $scope.savePlace = function() {
         console.log('clicked');
+        console.log($scope.place);
 
         var data = {
             "name": $scope.name,
             "description": $scope.description,
             "category": $scope.category,
+            "street":$scope.street,
             "city": $scope.city,
             "country": $scope.country,
             "image": $scope.image,
-            "owner":1
+            "owner": 1,
+            "status": $scope.visited
         };
 
         console.log(data);
@@ -48,6 +51,7 @@ function homeController($scope, $http, PlaceFactory) {
                 console.log('success');
                 console.log(place);
                 PlaceFactory.placeList.push(place);
+                $scope.newPlace = false;
             })
             .error(function (error) {
                 console.log('error');

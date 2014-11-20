@@ -22,8 +22,3 @@ class EmailUserCreationForm(UserCreationForm):
         )
 
 
-# class PlaceForm(ModelForm):
-#     # name = forms.CharField()
-#     class Meta:
-#         model = Place
-

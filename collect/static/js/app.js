@@ -10,10 +10,6 @@ wibeeApp.config(['$routeProvider', function($routeProvider) {
             templateUrl: '/static/js/views/place.html',
             controller: placeController
         }).
-        when('/map', {
-            templateUrl: '/static/js/views/map.html',
-            controller: mapController
-        }).
 
         otherwise({redirectTo:'/'});
 }]);

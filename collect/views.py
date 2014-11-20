@@ -3,38 +3,28 @@ from django.shortcuts import render, redirect
 # from collect.forms import PlaceForm
 from collect.forms import EmailUserCreationForm
 
-
 def home(request):
     return render(request, 'home.html')
 
-# def first(request):
-#     return render(request, 'first.html')
-
 def index(request):
+    return render(request, 'index.html')
+
+def register(request):
     if request.method == 'POST':
         form = EmailUserCreationForm(request.POST)
         if form.is_valid():
-            username = request.POST['username']
-            password = request.POST['password1']
+            username = request.POST["username"]
+            password = request.POST["password1"]
             user = form.save()
-            user.save()
+            user.email_user("Welcome!", "Thank you for signing up for our website.")
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:
                     login(request, user)
-        return redirect("index")
+                    return redirect("index")
     else:
         form = EmailUserCreationForm()
 
-    return render(request, "index.html", {'form': form})
-# def new_place(request):
-#     if request.method == 'POST':
-#         form = PlaceForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             if form.save():
-#                 return redirect("/home")
-#     else:
-#         form = PlaceForm()
-#
-#     data = {'form': form}
-#     return render(request, 'index.html', data)
+    return render(request, "registration/register.html", {
+        'form': form,
+    })

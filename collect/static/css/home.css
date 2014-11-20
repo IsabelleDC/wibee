@@ -1,26 +1,146 @@
-.my-places {
-    height: 250px;
-    width: 200px;
-    border: 1px solid grey;
-    border-radius: 10px;
-    margin : 5px;
-    float: left;
-    background-color:white;
-    color:grey;
-    font-size:20px;
+.navbar{
+    background-color: #424242;
 }
 
-body{
-    background-color:#F9D423;
+.navbar-brand{
+    font-family: 'Kaushan Script', cursive;
+    float:left;
+    height:50px;
+    color: #FF9900;
 }
+
+.navbar-inverse .navbar-brand
+{
+     color: #FF9900;
+     font-family: 'Kaushan Script', cursive;
+}
+
+
+body{
+    background-color: #E9E9E9;
+    font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    height:100%;
+}
+
+
+
+.title{
+    color:  #424242;
+}
+
+/*My card*/
 
 img.displayed {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width:90%;
+    max-height: 100px;
+}
+img.detailedPicture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:30%;
+}
+hr {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.my-places {
+    height: 300px;
+    width: 200px;
+    border: 1px solid #FF9900;
+    border-radius: 10px;
+    margin : 6px;
+    float: left;
+    background-color:white;
+    color:grey;
+    font-size:16px;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom:10px;
+    box-shadow: 2px 2px 2px #FF9900;
+}
+
+.logo {
+    color: #FF9900;
+    border: 2px solid #FF9900;
+    border-radius: 30px;
+    width:26px;
+    margin:0 auto;
+}
+
+.cardFrontTitle {
+    font-size : 18px;
+    color: #FF9900;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.cardFrontContent {
+    font-size : 14px;
+    color: grey;
+}
+.cardDetail {
+    font-size : 16px;
+    color: #211922;
+    border:solid 1px;
+    border-radius:20px;
+    text-align: center;
+}
+.addPlaceForm {
+    font-size : 16px;
+    border: 1px solid #FF9900;
+    border-radius: 10px;
+    background-color:white;
+    height: 300px;
+    width: 200px;
+    font-size:16px;
+    color:grey;
+}
+.form-control{
+    height:30px;
+    font-size:16px;
+    border:none;
+}
+button. sendInvite{
+    border-radius: 3px;
+    color:#031634;
+}
+.btn-primary {
+    color:#fff;
+    background-color:#FF9900;
+    border-color:#FF9900;
+    position: relative;
+    left: 50px;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #FF9900;
+  border-color: #FF9900;
 }
 
 a {
     cursor: pointer;
+    color : grey;
+}
+.cardFrontTitle a{
+    padding-top:20px;
+}
+
+body{
+  /*background-image: url('/static/img/background.jpeg');*/
+  /*background-size:100%;*/
+  /*background-repeat: no-repeat;*/
+  /*background-color: yellow;*/
 }
