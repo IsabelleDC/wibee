@@ -6,13 +6,11 @@ wibeeApp.factory('PlaceFactory', function($http){
                .success(function(places){
                    callback(places);
                }).error(function(error) {
-                   console.log('error');
                    console.log(error);
                });
        },
 
         deletePlace: function(place, callback) {
-            console.log('place id: ' + place);
             $http.delete('/api/places/' + place + '').success(function(response) {
                 callback(response)
             }).error(function(error){
@@ -21,7 +19,6 @@ wibeeApp.factory('PlaceFactory', function($http){
         },
 
         updatePlace: function(place, data, callback) {
-            console.log('place id: ' + place );
             $http.put('/api/places/' + place, data).success(function(response) {
                 callback(response)
             }).error(function(error){

@@ -14,8 +14,8 @@ urlpatterns = patterns('',
     # Examples:
 
     # url(r'^blog/', include('blog.urls')),
-    url(r'^$', 'collect.views.home', name='home'),
-    url(r'^index', 'collect.views.index', name='index'),
+    # url(r'^$', 'collect.views.home', name='home'),
+    url(r'^$', 'collect.views.index', name='index'),
     # url('^api/users/$', UserCreateView.as_view(), name='user-create'),
 
 

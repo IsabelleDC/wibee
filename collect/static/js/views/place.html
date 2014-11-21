@@ -1,20 +1,22 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <div>
+
                 <div class="cardDetail">
                     <div class ="cardFrontTitle">Name : {{ place.name }}</div>
+                    <hr>
+                    <div class="cardDetailContent">
                     <p>Description : {{ place.description }}</p>
-                    <p>Address : {{ place.streetnum }}{{ place.street }}, {{ place.city }} - {{ place.country }}</p>
+                    <p>Address : {{ place.streetnum }} {{ place.street }}, {{ place.city }} - {{ place.country }}</p>
                     <p>Created on: {{ place.created_time | date:'MM/dd/yyyy @ h:mm:ss a'}}</p>
                     <img class="detailedPicture" src="static/media/{{ place.image }}" ><br>
-                </div>
-            </div>
+                    </div>
+                    </div>
+
         </div>
         <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary btn-small" ng-click="deletePlace();">Delete Place</button><br><br>
+            <button type="submit" class="btn btn-primary btn-small" id="delete" ng-click="deletePlace();">Delete Place</button><br><br>
             <button type="submit" class="btn btn-primary btn-small" ng-click="updatePlace();">Update Place</button><br><br>
-            <button type="submit" class="btn btn-primary btn-small">Share with friends</button>
 
         </div>
     </div>

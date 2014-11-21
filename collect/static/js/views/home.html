@@ -2,9 +2,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-10">
-
             <div class="title">
-                <h1>My favorites places</h1>
+                <h1>Create and share your favorite places</h1>
             </div>
             <br>
         </div>
@@ -14,9 +13,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-10">
-            <input class="form-control" ng-model="searchText" width="50px" placeholder="Search"/>
-
             <div class="check-element animate-show" ng-hide="checked">
+                <input class="form-control" id="search-bar" ng-model="searchText" placeholder="Find your place"/>
                 <div ng-repeat="place in places | orderBy : created_time | filter: searchText | category:currentCategory | visited:showOnlyVisited">
                     <div class="my-places">
                         <div class="logo">W</div>
@@ -26,7 +24,7 @@
                             <flip-front>
                                 <div class="cardFrontContent">
                                     <br> Address : {{ place.streetnum }} {{ place.street }} {{ place.city }}
-                                    <br>{{ place.country }}
+                                    <br>{{ place.country }}<br>
                                     Created on: {{ place.created_time | date:'MM/dd/yyyy @ h:mm:ss a'}}<br>
 
                                 </div>
@@ -46,6 +44,7 @@
                         <div ng-repeat="place in places">
                             <marker lat="{{place.latitude}}" lng="{{place.longitude}}" color="#39cccc" symbol="ferry">
                                 <h1>{{place.name}}</h1>
+                                <p>{{ place.city }} <br>
 
                             </marker>
                         </div>
@@ -54,11 +53,13 @@
             </div>
         </div>
 
-<hr>
+
         <div class="col-sm-2">
-            <img src="http://img.bhs4.com/b7/b/b7b76402439268b532e3429b3f1d1db0b28651d5_large.jpg" width=30px height=30px type="submit" ng-click="newPlace = !newPlace">
+<div class="addButton">
+            <img class="addButton" src="http://img.bhs4.com/b7/b/b7b76402439268b532e3429b3f1d1db0b28651d5_large.jpg" width=40px height=40px type="submit" ng-click="newPlace = !newPlace">
             <span ng-hide="newPlace">Add a place</span>
             <span ng-show="newPlace">Cancel</span>
+</div>
             <br><br>
 
 
@@ -70,6 +71,7 @@
                 <input class="form-control" ng-model="name" type="text" placeholder="name">
                 <input class="form-control" ng-model="description" placeholder="description">
                 <select class="form-control" ng-model="category" placeholder="category">
+                    <option value="">Category</option>
                     <option value="1">Eat</option>
                     <option value="2">See</option>
                     <option value="3">Stay</option>
@@ -91,22 +93,7 @@
             <div ng-repeat="category in categories">
                 <a ng-click ="setCategory(category.id)"><img src="static/media/{{ category.image }}" height="40px" width="40px"></a> {{ category.name }}
             </div>
-<hr>
-            <h3>Friends</h3>
 
         </div>
 
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+</div></div>
