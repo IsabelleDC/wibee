@@ -8,6 +8,10 @@ from collect.api.serializers import UserSerializer, CategorySerializer, PlaceSer
 
 from collect.models import User, Place, Category
 
+# It looks like these are not working with authentication yet? or there's a bug here and it would allow
+# anyone to edit/delete anyone else's Places.
+
+# Likewise we probably don't want GET, POST, PATCH, DELETE for each one of these models here
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
