@@ -11,6 +11,7 @@ wibeeApp.factory('PlaceFactory', function($http){
        },
 
         deletePlace: function(place, callback) {
+            // I don't think you need the extra + '' here, or may want to add a trailing slash + '/'
             $http.delete('/api/places/' + place + '').success(function(response) {
                 callback(response)
             }).error(function(error){
