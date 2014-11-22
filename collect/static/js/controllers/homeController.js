@@ -23,6 +23,9 @@ function homeController($scope, $http, PlaceFactory) {
 
     $scope.savePlace = function() {
 
+        // This would be much easier if you were using angular forms and an object
+        // You would be able to just pass that object to the API call instead of having to
+        // set up one yourself with all of the different fields below.
         var data = {
             "name": $scope.name,
             "description": $scope.description,
