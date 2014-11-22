@@ -7,7 +7,8 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 from wibee import settings
 
-
+# Looks like you could have just used Django's user model?
+# Unless you plan on putting some of these custom properties back on
 class User(AbstractUser):
     # position = GeopositionField()
 
@@ -32,15 +33,19 @@ class Category(models.Model):
         (VIEW, 'View'),
         (SHOP, 'Shop'),
     )
+    # Might be better to use an IntegerField here instead
+    # Above choices could be RESTAURANT = 0, HOTEL = 1, etc instead
     name = models.CharField(max_length=15, choices=CATEGORY_CHOICES)
     image = models.ImageField(upload_to='categories', blank=True, null=True)
 
     def __unicode__(self):
         return self.name
 
-
+# Should any of these fields be in a separate related model or be a model choice field?
+# ^ that would make it easier to possibly filter or select things like marker types, locations, etc.
 class Place(models.Model):
     name = models.CharField(max_length=50)
+    # Do you actually want to allow all of these fields to be null in the database?
     streetnum = models.IntegerField(null=True, blank=True)
     street = models.CharField(max_length=100, null=True, blank=True)
     city = models.CharField(max_length=100, null=True, blank=True)
@@ -56,6 +61,7 @@ class Place(models.Model):
     marker_color = models.CharField(max_length=20, blank=True, null=True)
     owner = models.ForeignKey(User, related_name="place")
     created_time = models.DateTimeField(auto_now_add=True)
+    # don't need null=True, blank=True on ManyToManyField
     follower = models.ManyToManyField(User, related_name="followed_project", null=True, blank=True)
     status = models.BooleanField(default=False)
 
